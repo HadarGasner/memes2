@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=canvas, initial-scale=1.0">
+    <title>memes</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/34f9ba7b60.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="init()">
+
+    <header class="main-header main-layout align-center">
+        <div class="header-container container flex space-between">
+            <div class="logo">
+                Memegen
+            </div>
+            <ul class=" main-nav clean-list flex">
+                <li class="main-nav-item"><a class="link-btn" href="image-gallery.html" target="_blank">Gallery</a></li>
+                <li class="main-nav-item"><a class="link-btn" href="#" target="_blank"></a>About</a></li>
+
+            </ul>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        <div class="canvas-container">
+            <canvas onclick="onCanvas(event)" id="my-canvas" height="500" width="500"></canvas>
+        </div>
+
+        <div class="canvas-editor">
+            <input class="input-text" placeholder="write something"
+                title="to start press the bar,&#10;when you done press enter" type="text" id="totxt"
+                onclick="onMakeNewLine()" onkeydown="onChangeTxt(this,event)">
+
+            <div class="btn-contaner">
+                <button class="btn " title="add the picked image" onclick="onDrawImg()"><i
+                        class="fas fa-image"></i></button>
+                <button class="btn " title="erase the last text" onclick="onEraser()"><i
+                        class="fas fa-eraser"></i></button>
+         
+
+                <button class="btn " title="left" onclick="onChangeXPos(-1)"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button class="btn " title="right" onclick="onChangeXPos(1)"><i
+                        class="fas fa-chevron-right"></i></button>
+                <button class="btn " title="up" onclick="onChangeHeight(-1)"><i
+                        class="fas fa-angle-double-up"></i></button>
+
+                <button class="btn " title="increase" onclick="onResizeText(1)"><i
+                        class="fas fa-expand-alt"></i></button>
+                <button class="btn " title="decrease" onclick="onResizeText(-1)"><i
+                        class="fas fa-compress-alt"></i></i></button>
+                <button class="btn " title="down" onclick="onChangeHeight(1)"><i
+                        class="fas fa-angle-double-down"></i></button>
+                <button class="btn " title="switch line" onclick="onChangeSelectedLineIdx()"><i
+                        class="fas fa-sync-alt"></i></button>
+                <button title="save to storage" class="btn" onclick="onSaveMeme()"><i class="far fa-save"></i></button>
+                <button title="clear the canvas" class="btn" onclick="onClearCanvas()"><i
+                        class="fas fa-trash"></i></button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="all-memes" hidden>
+        all memes
+    </div>
+
+    <footer> this is footer</footer>
+    
+    <script src="js/storage-service.js"></script>
+    <script src="js/memes-service.js"></script>
+    <script src="js/memes-controller.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

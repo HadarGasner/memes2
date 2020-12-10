@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image-gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-gallery.css">
+    <script src="https://kit.fontawesome.com/34f9ba7b60.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body onload="onInit()">
+    <header class="gallery-header">
+        <h1>gallary <i class="fas fa-camera-retro"> </i></h1>
+    </header>
+
+    <div class="search-bar">
+        <label for="search-tag">search</label>
+        <input placeholder="dog" class="input-text" title="to start press the bar,&#10;when you done press enter"
+            type="text" id="search-tag">
+            <button onclick="onSearch()">search</button>
+
+    </div>
+
+    <div class="flex-contaner">
+        <div class="gallery-contaner-grid"></div>
+    </div>
+    
+    <div class="modal">
+       <i  onclick="onCloseModal()" class="close fas fa-times"></i>
+       <img class="picked-img">
+       <h2>are you sure</h2> 
+       <div class="btn"></div>
+       
+    </div>
+    <footer> this is footer</footer>
+    
+    <script src="js/img-gallary-service.js"></script>
+    <script src="js/img-gallary-controller.js"></script>
+    <script src="js/storage-service.js"></script>
+
+</body>
+
+</html>
