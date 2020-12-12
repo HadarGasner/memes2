@@ -5,16 +5,29 @@ body {
 .gallery-header {
     width: 100vw;
     text-align: center;
+    top: 0;
 }
 
 .search-bar {
     margin-left: 4%;
     width: 100vw;
 }
+.search-bar .search-btn{
+    height: 40px;
+    border-radius: 10%;
+    box-shadow: none;
+    border: 1px solid;
+    margin-left: 10px;
+}
+
+.search-bar .search-btn:hover{
+    background-color: rgb(255, 247, 248);
+}
 
 .flex-contaner {
     display: flex;
     justify-content: center;
+
 }
 
 .gallery-contaner-grid {

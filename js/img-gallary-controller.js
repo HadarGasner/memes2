@@ -1,6 +1,3 @@
-
-
-
 function onInit() {
     createImgs()
     renderImgs();
@@ -20,10 +17,9 @@ function renderImgs() {
 }
 
 function onPickImg(id) {
-    console.log(55);
     setMemeImg(id)
-
-     document.querySelector('.modal').hidden = true
+    document.querySelector('.modal').style.visibility = 'hidden'
+    
 }
 
 function onOpenModal(id) {

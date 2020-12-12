@@ -6,12 +6,20 @@ body {
 header {
     width: 100vw;
     background-color: palevioletred;
-    padding: 20px;
+    height: 90px;
 }
+
+.main-header {}
 
 .header-container {
     display: flex;
     justify-content: space-between;
+    height: 100%;
+}
+
+.main-nav .main-nav-item:hover {
+    box-shadow: 1px 0 1px 1px #1d1d1d, inset 0 -6px 0 rgb(65, 2, 65);
+    color: rgb(65, 2, 65);
 }
 
 @font-face {
@@ -20,11 +28,11 @@ header {
 }
 
 .main-header .logo {
+    font-stretch: expanded;
     font-family: 'impact';
-    margin: auto;
+    margin-left: 25px;
+    margin-top: 25px;
     height: 100%;
-    vertical-align: baseline;
-    font-weight: 400px;
     font-style: normal;
     letter-spacing: normal;
     line-height: normal;
@@ -47,13 +55,15 @@ header {
 
 .main-header .main-nav {
     display: flex;
+    height: 100%;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: space-between;
     flex-grow: 54;
 }
 
 .main-nav-item {
+    height: 100%;
     width: 25%;
     display: flex;
     justify-content: center;
@@ -87,7 +97,7 @@ i {
     margin: auto;
     border: 1px solid black;
     width: 100%;
-    height: 58vh;
+    height: 47vh;
 }
 
 .canvas-editor {
@@ -99,7 +109,7 @@ i {
     flex-direction: column;
     align-items: center;
     /* justify-content: space-between; */
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 .btn-contaner {
@@ -140,8 +150,18 @@ footer {
         grid-template-columns: 1fr;
         grid-template-areas: "canvas-container canvas-container" "canvas-action canvas-action";
     }
-    .btn-contaner{
-        grid-template-columns: repeat(5, 1fr);
+    .btn-contaner {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .main-header {
+        height: 170px;
+    }
+    .header-container {
+        flex-direction: column;
+        align-items: space-between;
+    }
+    .main-header .main-nav{
+        justify-content: space-around;
     }
 }
 
@@ -151,4 +171,41 @@ footer {
     background-color: darkred;
     width: 100vw;
     height: 40%;
+}
+
+.container-modal {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.76);
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    visibility: hidden;
+}
+
+.container-modal .about-modal h2 {
+    text-align: center;
+}
+
+.container-modal .about-modal {
+    position: absolute;
+    background-color: palevioletred;
+    top: 0;
+    width: 50%;
+    height: 100%;
+
+}
+
+.container-modal .about-modal button {
+    margin-top: 35px;
+    margin-left: 23%;
+    height: 40px;
+    background-color: palevioletred;
+    color: whitesmoke;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 740px) {
+    .container-modal .about-modal {
+        width: 100%;
+    }
 }

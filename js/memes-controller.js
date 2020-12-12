@@ -2,6 +2,7 @@ var gCanvas;
 var gCtx;
 var gIsHaveTxt = true;
 var gRect
+var gIsHidden = true;
 
 function init() {
     gCanvas = document.getElementById('my-canvas')
@@ -51,7 +52,7 @@ function onChangeHeight(add) {
 }
 
 function onChangeXPos(add) {
-   setXPos(add);
+    setXPos(add);
     rennderCanvas()
 }
 function onDrawImg() {
@@ -124,8 +125,10 @@ function onClearCanvas() {
 function onCanvas(ev) {
 
     var elEditor = document.querySelector(".canvas-editor")
-    if (elEditor.style.visibility === 'hidden') {
+    console.log(elEditor.style.visibility);
+    if (gIsHidden) {
         elEditor.style.visibility = 'visible'
+        gIsHidden = false
         return
     }
 
@@ -142,4 +145,14 @@ function onCanvas(ev) {
 }
 function onSaveMeme() {
     SaveMeme();
+}
+
+function onAbout() {
+    var elModal = document.querySelector(".container-modal")
+    elModal.style.visibility = 'visible'
+}
+
+function onCloseAbout(){
+    var elModal = document.querySelector(".container-modal")
+    elModal.style.visibility = 'hidden'
 }

@@ -17,8 +17,10 @@
                 Memegen
             </div>
             <ul class=" main-nav clean-list flex">
-                <li class="main-nav-item"><a class="link-btn" href="image-gallery.html" target="_blank">Gallery</a></li>
-                <li class="main-nav-item"><a class="link-btn" href="#" target="_blank"></a>About</a></li>
+                <li class="main-nav-item"><a class="link-btn" href="image-gallery.html" target="_blank">Gallery </a>
+                </li>
+                <li class="main-nav-item" onclick="onAbout()"><a class="link-btn" href="#" target="_blank"></a>About</a>
+                </li>
 
             </ul>
         </div>
@@ -26,7 +28,7 @@
 
     <div class="grid-container">
         <div class="canvas-container">
-            <canvas onclick="onCanvas(event)" id="my-canvas" height="500" width="500"></canvas>
+            <canvas onclick="onCanvas(event)" id="my-canvas" height="400" width="400"></canvas>
         </div>
 
         <div class="canvas-editor">
@@ -39,15 +41,14 @@
                         class="fas fa-image"></i></button>
                 <button class="btn " title="erase the last text" onclick="onEraser()"><i
                         class="fas fa-eraser"></i></button>
-         
-
+                <button title="clear the canvas" class="btn" onclick="onClearCanvas()"><i
+                        class="fas fa-trash"></i></button>
                 <button class="btn " title="left" onclick="onChangeXPos(-1)"><i
                         class="fas fa-chevron-left"></i></button>
                 <button class="btn " title="right" onclick="onChangeXPos(1)"><i
                         class="fas fa-chevron-right"></i></button>
                 <button class="btn " title="up" onclick="onChangeHeight(-1)"><i
                         class="fas fa-angle-double-up"></i></button>
-
                 <button class="btn " title="increase" onclick="onResizeText(1)"><i
                         class="fas fa-expand-alt"></i></button>
                 <button class="btn " title="decrease" onclick="onResizeText(-1)"><i
@@ -57,25 +58,34 @@
                 <button class="btn " title="switch line" onclick="onChangeSelectedLineIdx()"><i
                         class="fas fa-sync-alt"></i></button>
                 <button title="save to storage" class="btn" onclick="onSaveMeme()"><i class="far fa-save"></i></button>
-                <button title="clear the canvas" class="btn" onclick="onClearCanvas()"><i
-                        class="fas fa-trash"></i></button>
+
             </div>
-
         </div>
-
     </div>
-
 
     <div class="all-memes" hidden>
         all memes
     </div>
 
-    <footer> this is footer</footer>
-    
+
+    <div class="container-modal">
+        <div class="modal-back"></div>
+        <div class="about-modal">
+            <h2>About</h2>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius delectus magnam esse deserunt ipsa dolorum
+            ea,
+            assumenda inventore facere aliquid aspernatur sapiente repellat nostrum iste eaque suscipit, reiciendis
+            perspiciatis deleniti quaerat vero impedit debitis perferendis hic dicta. Pariatur voluptatibus ad ipsum!
+            <button onclick="onCloseAbout()">let's creat memes</button>
+        </div>
+    </div>
+    <footer><i class="fas fa-shoe-prints"><i class="fas fa-shoe-prints"></i><i class="fas fa-shoe-prints"></i></i> this
+        is footer<i class="fas fa-shoe-prints"></i><i class="fas fa-shoe-prints"></i><i class="fas fa-shoe-prints"></i>
+    </footer>
+
     <script src="js/storage-service.js"></script>
     <script src="js/memes-service.js"></script>
     <script src="js/memes-controller.js"></script>
-    <script src="js/main.js"></script>
 
 </body>
 

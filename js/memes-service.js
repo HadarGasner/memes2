@@ -1,6 +1,6 @@
 const KEY = 'IMAGE'
 const KEYmemes = 'memse'
-gHeight = [100, 450, 200];
+gHeight = [100, 350, 200];
 gHeightIdx = 0;
 var gMeme = {
     selectedImgId: 1,
