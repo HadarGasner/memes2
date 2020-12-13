@@ -6,87 +6,131 @@
     <meta name="viewport" content="width=canvas, initial-scale=1.0">
     <title>memes</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-gallery.css">
+
     <script src="https://kit.fontawesome.com/34f9ba7b60.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <body onload="init()">
+    <div class="main-page">
+        <header class="main-header main-layout align-center">
+            <div class="header-container container flex space-between">
+                <div class="logo">
+                    Memegen
+                </div>
+                <ul class=" main-nav clean-list flex">
+                    <li class="main-nav-item" onclick="onGallary()">Gallery
+                    </li>
+                    <li class="main-nav-item" onclick="onAbout()"><a class="link-btn" href="#"
+                            target="_blank"></a>About</a>
+                    </li>
 
-    <header class="main-header main-layout align-center">
-        <div class="header-container container flex space-between">
-            <div class="logo">
-                Memegen
+                </ul>
             </div>
-            <ul class=" main-nav clean-list flex">
-                <li class="main-nav-item"><a class="link-btn" href="image-gallery.html" target="_blank">Gallery </a>
-                </li>
-                <li class="main-nav-item" onclick="onAbout()"><a class="link-btn" href="#" target="_blank"></a>About</a>
-                </li>
+        </header>
 
-            </ul>
+        <div class="grid-container">
+            <div class="canvas-container">
+                <canvas onclick="onCanvas(event)" id="my-canvas" height="400" width="400"></canvas>
+            </div>
+
+            <div class="canvas-editor">
+                <input class="input-text" placeholder="write something"
+                    title="to start new line press the bar" type="text" id="totxt"
+                    onclick="onMakeNewLine()" oninput="onChangeTxt(this,event)">
+
+                <div class="btn-contaner">
+                    <button class="btn " title="add the picked image" onclick="onDrawImg()"><i
+                            class="fas fa-image"></i></button>
+                    <button class="btn " title="erase the last text" onclick="onEraser()"><i
+                            class="fas fa-eraser"></i></button>
+                    <button title="clear the canvas" class="btn trash" onclick="onClearCanvas()"><i
+                            class="fas fa-trash"></i></button>
+                    <button class="btn " title="left" onclick="onChangeXPos(-1)"><i
+                            class="fas fa-chevron-left"></i></button>
+                    <button class="btn " title="right" onclick="onChangeXPos(1)"><i
+                            class="fas fa-chevron-right"></i></button>
+                    <button class="btn " title="up" onclick="onChangeHeight(-1)"><i
+                            class="fas fa-angle-double-up"></i></button>
+                    <button class="btn " title="increase" onclick="onResizeText(1)"><i
+                            class="fas fa-expand-alt"></i></button>
+                    <button class="btn " title="decrease" onclick="onResizeText(-1)"><i
+                            class="fas fa-compress-alt"></i></i></button>
+                    <button class="btn " title="down" onclick="onChangeHeight(1)"><i
+                            class="fas fa-angle-double-down"></i></button>
+                    <button class="btn " title="switch line" onclick="onChangeSelectedLineIdx()"><i
+                            class="fas fa-sync-alt"></i></button>
+                    <button title="save to storage" class="btn" onclick="onSaveMeme()"><i
+                            class="far fa-save"></i></button>
+
+                </div>
+            </div>
         </div>
-    </header>
 
-    <div class="grid-container">
-        <div class="canvas-container">
-            <canvas onclick="onCanvas(event)" id="my-canvas" height="400" width="400"></canvas>
+        <div class="all-memes" hidden>
+            all memes
         </div>
 
-        <div class="canvas-editor">
-            <input class="input-text" placeholder="write something"
-                title="to start press the bar,&#10;when you done press enter" type="text" id="totxt"
-                onclick="onMakeNewLine()" onkeydown="onChangeTxt(this,event)">
 
-            <div class="btn-contaner">
-                <button class="btn " title="add the picked image" onclick="onDrawImg()"><i
-                        class="fas fa-image"></i></button>
-                <button class="btn " title="erase the last text" onclick="onEraser()"><i
-                        class="fas fa-eraser"></i></button>
-                <button title="clear the canvas" class="btn" onclick="onClearCanvas()"><i
-                        class="fas fa-trash"></i></button>
-                <button class="btn " title="left" onclick="onChangeXPos(-1)"><i
-                        class="fas fa-chevron-left"></i></button>
-                <button class="btn " title="right" onclick="onChangeXPos(1)"><i
-                        class="fas fa-chevron-right"></i></button>
-                <button class="btn " title="up" onclick="onChangeHeight(-1)"><i
-                        class="fas fa-angle-double-up"></i></button>
-                <button class="btn " title="increase" onclick="onResizeText(1)"><i
-                        class="fas fa-expand-alt"></i></button>
-                <button class="btn " title="decrease" onclick="onResizeText(-1)"><i
-                        class="fas fa-compress-alt"></i></i></button>
-                <button class="btn " title="down" onclick="onChangeHeight(1)"><i
-                        class="fas fa-angle-double-down"></i></button>
-                <button class="btn " title="switch line" onclick="onChangeSelectedLineIdx()"><i
-                        class="fas fa-sync-alt"></i></button>
-                <button title="save to storage" class="btn" onclick="onSaveMeme()"><i class="far fa-save"></i></button>
+        <div class="container-modal">
+            <div class="modal-back" onclick="onCloseAbout()"></div>
+            <div class="about-modal">
+                <h2>About</h2>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius delectus magnam esse deserunt ipsa
+                dolorum
+                ea,
+                assumenda inventore facere aliquid aspernatur sapiente repellat nostrum iste eaque suscipit, reiciendis
+                perspiciatis deleniti quaerat vero impedit debitis perferendis hic dicta. Pariatur voluptatibus ad
+                ipsum!
+                <button onclick="onCloseAbout()">let's creat memes</button>
+            </div>
+        </div>
+
+        <footer> Memegen 2020</footer>
+    </div>
+
+
+
+    <div class="gallery-page">
+        <header class="gallery-header header">
+            <h1>gallary <i class="fas fa-camera-retro"> </i></h1>
+        </header>
+
+        <div class="search-bar">
+            <label for="search-tag">search tags</label>
+            <input placeholder="dog" class="input-text" title="to start press the bar,&#10;when you done press enter"
+                type="text" id="search-tag">
+            <button class="search-btn" onclick="onSearch()">search</button>
+            <div class="search-tag">
+                <span onclick="setFillter('all')">all</span>
+                <span class="animated animate__shakeY" onclick="setFillter('dog')">dog</span>
+                <span onclick="setFillter('cat')">cat</span>
+                <span onclick="setFillter('baby')">baby</span>
+                <span onclick="setFillter('one')">one</span>
+                <span onclick="setFillter('two')">two</span>
 
             </div>
         </div>
-    </div>
 
-    <div class="all-memes" hidden>
-        all memes
-    </div>
-
-
-    <div class="container-modal">
-        <div class="modal-back"></div>
-        <div class="about-modal">
-            <h2>About</h2>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius delectus magnam esse deserunt ipsa dolorum
-            ea,
-            assumenda inventore facere aliquid aspernatur sapiente repellat nostrum iste eaque suscipit, reiciendis
-            perspiciatis deleniti quaerat vero impedit debitis perferendis hic dicta. Pariatur voluptatibus ad ipsum!
-            <button onclick="onCloseAbout()">let's creat memes</button>
+        <div class="flex-contaner">
+            <div class="gallery-contaner-grid"></div>
         </div>
-    </div>
-    <footer><i class="fas fa-shoe-prints"><i class="fas fa-shoe-prints"></i><i class="fas fa-shoe-prints"></i></i> this
-        is footer<i class="fas fa-shoe-prints"></i><i class="fas fa-shoe-prints"></i><i class="fas fa-shoe-prints"></i>
-    </footer>
 
+
+        <footer> this is footer</footer>
+    </div>
+
+
+
+
+    <script src="js/memes-controller.js"></script>
+    <script src="js/img-gallary-service.js"></script>
+    <script src="js/img-gallary-controller.js"></script>
     <script src="js/storage-service.js"></script>
     <script src="js/memes-service.js"></script>
-    <script src="js/memes-controller.js"></script>
 
+    </div>
 </body>
 
 </html>

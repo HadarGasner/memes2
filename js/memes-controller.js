@@ -18,6 +18,15 @@ function init() {
         yHeight: 60
     }
 }
+function onGallary() {
+    elPage = document.querySelector('.main-page');
+    elPage.style.display = 'none'
+    onInit()
+    elPage = document.querySelector('.gallery-page');
+    elPage.style.visibility = 'visible'
+    var elEditor = document.querySelector(".canvas-editor")
+    elEditor.style.visibility = 'hidden'
+}
 
 function onChangeSelectedLineIdx() {
 
@@ -59,7 +68,6 @@ function onDrawImg() {
     gIsHaveTxt = false
     drawImg()
     clearLines()
-
 }
 
 function drawImg() {
@@ -110,9 +118,7 @@ function onChangeTxt(elInput, ev) {
     var text = elInput.value
     setNewTextLine(text)
     drawText()
-    if (ev.key === 'Enter') {
-        elInput.value = '';
-    }
+    rennderCanvas()
 }
 
 function onClearCanvas() {
@@ -152,7 +158,7 @@ function onAbout() {
     elModal.style.visibility = 'visible'
 }
 
-function onCloseAbout(){
+function onCloseAbout() {
     var elModal = document.querySelector(".container-modal")
     elModal.style.visibility = 'hidden'
 }

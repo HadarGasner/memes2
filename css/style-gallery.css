@@ -1,18 +1,22 @@
 body {
-    width: 100vw;
+    max-width: 100vw;
 }
 
 .gallery-header {
-    width: 100vw;
+    max-width: 100vw;
     text-align: center;
     top: 0;
 }
 
+.gallery-header h1 {
+    margin: 0;
+}
+
 .search-bar {
     margin-left: 4%;
-    width: 100vw;
 }
-.search-bar .search-btn{
+
+.search-bar .search-btn {
     height: 40px;
     border-radius: 10%;
     box-shadow: none;
@@ -20,14 +24,32 @@ body {
     margin-left: 10px;
 }
 
-.search-bar .search-btn:hover{
+.search-bar .search-btn:hover {
     background-color: rgb(255, 247, 248);
+}
+
+.search-bar .search-tag {
+    display: inline;
+}
+
+.search-bar .search-tag span:first-child {
+    margin-left: 30px;
+}
+
+.search-bar .search-tag span {
+    margin-right: 10px;
+    font-size: 2rem;
+}
+
+.search-bar .search-tag span:hover {
+    color: tomato;
+    cursor: pointer;
+    animation-duration: 2s
 }
 
 .flex-contaner {
     display: flex;
     justify-content: center;
-
 }
 
 .gallery-contaner-grid {
@@ -52,65 +74,19 @@ body {
     .caverd-img {
         height: 80%;
     }
+    .search-bar .search-tag {
+        display: block;
+    }
 }
 
 @media (max-width: 450px) {
     .gallery-contaner-grid {
-        grid-template-columns: 230px;
-        grid-template-rows: repeat(6, 45vw);
-        grid-template-areas: " img "
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
     }
     .caverd-img {
-        height: 100%;
+        width: 100%;
     }
-}
-
-.modal {
-    border: 4px solid darkorchid;
-    background-color: lightpink;
-    position: fixed;
-    height: 350px;
-    width: 30vw;
-    top: 25vh;
-    padding: 10px;
-    margin: 0 35vw;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    visibility: hidden;
-}
-
-.picked-img {
-    position: absolute;
-    height: 200px;
-    width: 60%;
-    margin: auto;
-}
-
-.modal h2 {
-    margin-top: 220px;
-    font-size: 2rem;
-}
-
-.close {
-    text-align: right;
-    margin-right: 10px;
-    right: 0;
-    position: absolute;
-}
-
-.modal .sure {
-    background-color: rgba(207, 79, 79, 0.68);
-    border: none;
-    height: 40px;
-    font-size: 1.5rem;
-    border-radius: 20;
-    color: black;
-}
-
-.modal .sure:hover{
-    border: 2px solid black;
 }
 
 @media (max-width: 870px) {

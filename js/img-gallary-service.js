@@ -1,4 +1,5 @@
-const KEY = 'IMAGE'
+
+
 
 //var gFilterImg
 
@@ -27,7 +28,7 @@ function getImgs() {
 
 function createImgs() {
     imgs = [];
-    for (var i = 1; i <= 6; i++) {
+    for (var i = 1; i <= 12; i++) {
         imgs.push(createImg(i))
 
     }
@@ -48,6 +49,9 @@ function setFilter(tag) {
 
 function filterImg() {
     createImgs()
+    if (gFillter === 'all') {
+        return
+    }
     var imgs = gImgs.filter(function (img) {
         return img.keywords.some(function (tagImg) {
             return tagImg.includes(gFillter)

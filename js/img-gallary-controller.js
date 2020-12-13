@@ -8,7 +8,7 @@ function renderImgs() {
     var strHtml = ``
 
     imgs.map(function (img) {
-        strHtml += `<div class"img-contaner"> <img onclick="onOpenModal(${img.id})" class="caverd-img" src="${img.url}"></div>`
+        strHtml += `<div class"img-contaner"> <img onclick="onPickImg(${img.id})" class="caverd-img" src="${img.url}"></div>`
     })
 
     var elGallery = document.querySelector('.gallery-contaner-grid');
@@ -16,30 +16,32 @@ function renderImgs() {
 
 }
 
+
 function onPickImg(id) {
     setMemeImg(id)
-    document.querySelector('.modal').style.visibility = 'hidden'
-    
+    elPage = document.querySelector('.main-page');
+    elPage.style.display = 'block'
+    elPage = document.querySelector('.gallery-page');
+    elPage.style.visibility = 'hidden'
+    var elEditor = document.querySelector(".canvas-editor")
+    elEditor.style.visibility = 'visible'
+    rennderCanvas()
 }
 
-function onOpenModal(id) {
-    var img = getImgById(id)
-    var elModal = document.querySelector('.modal')
-    elModal.style.visibility = 'visible'
-    elModal.querySelector('img').src = img.url;
-    elModal.querySelector('.btn').innerHTML = `<button class="sure" onclick="onPickImg(${img.id})">sure</button>`
 
-}
-
-function onCloseModal() {
-    document.querySelector('.modal').style.visibility = 'hidden'
-}
 
 
 function onSearch() {
     var input = document.getElementById("search-tag")
     console.log(input.value);
     setFilter(input.value)
+    filterImg()
+    renderImgs()
+}
+
+function setFillter(fillter){
+    console.log(fillter);
+    setFilter(fillter)
     filterImg()
     renderImgs()
 }
